@@ -1,13 +1,5 @@
 #! /usr/bin/python3
 
-# 2026-07-08  use os.environ['HOME']
-# 2024-05-23  print messages in stderr
-# 2022-07-16  changed logic in order to parse standard input and any file given
-# 2022-07-10  fixed 'short-' lookup
-# 2022-06-06  initial version
-#             can abbreviate a given string
-#             can read a bibfile and abbreviate journal names
-
 import os, sys, glob
 
 wtable = {}
