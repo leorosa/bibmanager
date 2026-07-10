@@ -964,8 +964,16 @@ def rem_ref(refs, bib=''):
 
 def write_fmtrefs(sty, mk='html'):
     if not curbib: return
-    outfile = asksaveasfilename()
+    filetypes = [('html','.html')]
+    for fname in glob.glob(basedir+'/*.mk'):
+        flabel = fname.replace(basedir,'').strip('/').split('.')[0]
+        if flabel!='html':
+            filetypes.append((flabel, '.'+flabel))
+    outfile = asksaveasfilename(defaultextension='.html', filetypes=filetypes)
     if not outfile: return
+    if '.' in outfile:
+      if outfile.split('.')[-1] in [ext[0] for ext in filetypes]:
+        mk = outfile.split('.')[-1]
     fileID = open(outfile, 'w')
     for line in out_fmtrefs(sty, mk, bibnames[curbib]):
         if line:
