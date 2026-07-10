@@ -4,7 +4,6 @@ import os, sys, glob
 
 wtable = {}
 source = glob.glob(os.environ['HOME']+'/.local/share/bibmanager/ltwa_*.csv')
-basedir = os.environ['HOME']+'.local/bibmanager'
 if not source:
     sys.stderr.write('no abbreviation file found; download one in https://www.issn.org/services/online-services/access-to-the-ltwa/\n')
     exit()
